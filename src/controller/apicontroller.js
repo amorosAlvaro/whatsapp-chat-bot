@@ -17,7 +17,7 @@ const apiController = {
       const values = changes["values"];
       const messagesObject = values["messages"];
 
-      console.log("changes", changes);
+      console.log("messagesObject", messagesObject);
       res.send("EVENT_RECEIVED");
     } catch (e) {
       console.log("error: ", e);
