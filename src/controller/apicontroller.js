@@ -23,8 +23,6 @@ const apiController = {
       console.log("error: ", e);
       res.send("EVENT_RECEIVED");
     }
-
-    console.log("req", req);
   },
 };
 
