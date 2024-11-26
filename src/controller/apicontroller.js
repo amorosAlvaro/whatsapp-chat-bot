@@ -4,20 +4,27 @@ const apiController = {
     const token = req.query["hub.verify_token"];
     const challenge = req.query["hub.challenge"];
 
-    console.log("token", token);
-    console.log("challenge", challenge);
-    console.log("req", req);
-
     try {
-      console.log("Verification successful console");
       res.send(challenge);
     } catch {
       res.status(400).send();
     }
   },
   recibir: (req, res) => {
-    res.send("Data received");
-    console.log("Recived Console");
+    try {
+      const entry = req.body["entry"][0];
+      const changes = entry["changes"][0];
+      const values = changes["values"];
+      const messagesObject = values["messages"];
+
+      console.log("changes", changes);
+      res.send("EVENT_RECEIVED");
+    } catch (e) {
+      console.log("error: ", e);
+      res.send("EVENT_RECEIVED");
+    }
+
+    console.log("req", req);
   },
 };
 
