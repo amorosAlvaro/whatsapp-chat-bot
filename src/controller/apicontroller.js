@@ -14,8 +14,8 @@ const apiController = {
     try {
       const entry = req.body["entry"][0];
       const changes = entry["changes"][0];
-      const values = changes["values"];
-      const messagesObject = values["messages"];
+      const value = changes["value"];
+      const messagesObject = value["messages"];
 
       console.log("messagesObject", messagesObject);
       res.send("EVENT_RECEIVED");
